@@ -32,6 +32,13 @@ struct ContentView: View {
         }
     }
     
+    private var textAnimationComputedScale: CGFloat {
+        switch state {
+        case .none: return 1.1
+        case .thinking: return 1
+        }
+    }
+    
     private var animatedMaskBlur: CGFloat {
         switch state {
         case .none: return 8
@@ -50,6 +57,20 @@ struct ContentView: View {
                 state: $state,
                 counter: $counter
             )
+            .background {
+                TextBoxAnimationView(state: $state)
+                    .mask {
+                        GeometryReader { geometry in
+                            AnimatedRectangle(size: geometry.size,
+                                              cornerRadius: 48,
+                                              t: CGFloat(maskTimer))
+                            .scaleEffect(textAnimationComputedScale)
+                            .frame(width: geometry.size.width,
+                                   height: geometry.size.height)
+                            .blur(radius: animatedMaskBlur)
+                        }
+                    }
+            }
             .padding(16)
         }
         .background(alignment: .top) {

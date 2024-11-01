@@ -29,6 +29,7 @@
 				Ripples/RippleEffectModifier.swift,
 				SiriGradients/AnimatedPath.swift,
 				SiriGradients/MeshGradientView.swift,
+				SiriGradients/TextBoxAnimationView.swift,
 				TextInputLayer.swift,
 			);
 			target = 2C79CD292CD4DF0800A00E25 /* Prototype-Siri-Textfield */;

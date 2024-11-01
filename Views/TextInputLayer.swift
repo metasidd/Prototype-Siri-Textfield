@@ -4,23 +4,28 @@ struct TextInputLayer: View {
     @Binding var state: SiriState
     @Binding var counter: Int
     
-    @State var text: String = "Hello"
+    @State var text: String = ""
     @FocusState private var isFocused: Bool
     
     var body: some View {
-        TextField("Test", text: $text)
+        TextField("", text: $text)
+            .padding(.horizontal, 12)
             .placeholder(when: text.isEmpty) {
-                Text("Placeholder recreated").foregroundColor(.gray)
+                Text("What are you looking for?")
+                    .foregroundColor(isFocused ? .black.opacity(0.7) : .white.opacity(0.5))
+                    .padding(.horizontal, 12)
             }
-            .textFieldStyle(.plain)
-            .foregroundColor(.white)
-            .multilineTextAlignment(.center)
-            .font(.system(size: 24))
             .padding(.vertical, 16)
+            .padding(.horizontal, 12)
+            .multilineTextAlignment(.leading)
+            .textFieldStyle(.plain)
+            .foregroundColor(isFocused ? .black : .white)
+            .multilineTextAlignment(.center)
+            .font(.title3)
             .background(
                 RoundedRectangle(cornerRadius: 32.0, style: .continuous)
-                    .fill(Color.gray.opacity(0.1))
-                    .stroke(Color.white, lineWidth: isFocused ? 2 : 0)
+                    .fill(isFocused ? Color.white.opacity(0.7) : Color.gray.opacity(0.1))
+                    .stroke(Color.white, lineWidth: isFocused ? 1 : 0)
             )
             .padding(16)
             .textInputAutocapitalization(.never)
