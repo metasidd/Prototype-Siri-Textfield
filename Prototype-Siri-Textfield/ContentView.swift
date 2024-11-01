@@ -47,11 +47,13 @@ struct ContentView: View {
         }
         .background {
             ZStack {
-                InteractionLayer(state: $state,
+                MeshAnimationView(state: $state,
                                origin: $origin,
                                counter: $counter)
                 
-                PhoneBackground()
+                scrimView
+                
+                PhoneBackgroundView()
                     .mask {
                         GeometryReader { geometry in
                             AnimatedRectangle(size: geometry.size,
@@ -64,6 +66,15 @@ struct ContentView: View {
                         }
                     }
             }
+        }
+    }
+    
+    @ViewBuilder
+    private var scrimView: some View {
+        if state == .thinking {
+            RoundedRectangle(cornerRadius: 52, style: .continuous)
+                .stroke(Color.white, style: .init(lineWidth: 4))
+                .blur(radius: 4)
         }
     }
 }

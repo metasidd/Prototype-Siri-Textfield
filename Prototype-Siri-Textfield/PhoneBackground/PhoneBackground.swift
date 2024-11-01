@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PhoneBackground: View {
+struct PhoneBackgroundView: View {
     var body: some View {
         ZStack {
             Image("Background", bundle: .main)
@@ -20,5 +20,5 @@ struct PhoneBackground: View {
 }
 
 #Preview {
-    PhoneBackground()
+    PhoneBackgroundView()
 }

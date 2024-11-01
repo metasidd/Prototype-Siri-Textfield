@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct InteractionLayer: View {
+struct MeshAnimationView: View {
     @Binding var state: ContentView.SiriState
     @Binding var origin: CGPoint
     @Binding var counter: Int
@@ -34,12 +34,6 @@ struct InteractionLayer: View {
                     .fill(Color.black)
                     .opacity(scrimOpacity)
                     .scaleEffect(1.2) // avoids clipping
-                
-                if state == .thinking {
-                    RoundedRectangle(cornerRadius: 52, style: .continuous)
-                        .stroke(Color.white, style: .init(lineWidth: 4))
-                        .blur(radius: 4)
-                }
                 
                 MeshGradientView(maskTimer: $maskTimer, gradientSpeed: $gradientSpeed)
                     .scaleEffect(1.3)
