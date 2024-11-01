@@ -36,11 +36,6 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2CB4FD242CD51315008C2D00 /* Preview Content */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		2CB4FD312CD51315008C2D00 /* Views */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -66,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				2CB4FD122CD51120008C2D00 /* ContentView.swift */,
-				2CB4FD242CD51315008C2D00 /* Preview Content */,
 				2CB4FD312CD51315008C2D00 /* Views */,
 				2CB4FD102CD51120008C2D00 /* Assets.xcassets */,
 				2C79CD2B2CD4DF0800A00E25 /* Products */,
@@ -95,9 +89,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				2CB4FD242CD51315008C2D00 /* Preview Content */,
 			);
 			name = "Prototype-Siri-Textfield";
 			packageProductDependencies = (
@@ -289,7 +280,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Prototype-Siri-Textfield/Preview Content\"";
 				DEVELOPMENT_TEAM = J7QJPYJ8V6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -318,7 +308,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Prototype-Siri-Textfield/Preview Content\"";
 				DEVELOPMENT_TEAM = J7QJPYJ8V6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
