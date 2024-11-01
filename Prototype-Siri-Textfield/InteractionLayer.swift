@@ -16,12 +16,6 @@ struct InteractionLayer: View {
                 MeshGradientView(maskTimer: $maskTimer, gradientSpeed: $gradientSpeed)
                     .scaleEffect(1.3)
                     .opacity(containerOpacity)
-                    .mask {
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(lineWidth: 2)
-                            .frame(width: geometry.size.width * 0.8 + 32,
-                                   height: 60)
-                    }
                 
                 if state == .thinking {
                     RoundedRectangle(cornerRadius: 52, style: .continuous)
@@ -49,6 +43,6 @@ struct InteractionLayer: View {
     }
     
     private var rectangleSpeed: Float {
-        state == .thinking ? 0.03 : 0
+        state == .thinking ? gradientSpeed : 0
     }
 } 

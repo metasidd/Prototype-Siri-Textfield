@@ -25,27 +25,31 @@ struct ContentView: View {
     @State private var maskTimer: Float = 0.0
 
     var body: some View {
-        ZStack {
-            BackgroundView()
-            
-            InteractionLayer(state: $state, 
-                           origin: $origin, 
-                           counter: $counter)
-            
-            PhoneBackground(state: $state, 
-                          origin: $origin, 
-                          counter: $counter)
-                .mask {
-                    GeometryReader { geometry in
-                        AnimatedRectangle(size: geometry.size, 
-                                        cornerRadius: 48, 
-                                        t: CGFloat(maskTimer))
-                            .scaleEffect(computedScale)
-                            .frame(width: geometry.size.width, 
-                                   height: geometry.size.height)
-                            .blur(radius: animatedMaskBlur)
+        VStack {
+            Spacer()
+            TextInputLayer(state: $state)
+                .frame(maxWidth: .infinity)
+                .padding(16)
+        }
+        .background {
+            ZStack {
+                PhoneBackground(state: $state)
+                    .mask {
+                        GeometryReader { geometry in
+                            AnimatedRectangle(size: geometry.size,
+                                            cornerRadius: 48,
+                                            t: CGFloat(maskTimer))
+                                .scaleEffect(computedScale)
+                                .frame(width: geometry.size.width,
+                                       height: geometry.size.height)
+                                .blur(radius: animatedMaskBlur)
+                        }
                     }
-                }
+                
+                InteractionLayer(state: $state,
+                               origin: $origin,
+                               counter: $counter)
+            }
         }
     }
 
