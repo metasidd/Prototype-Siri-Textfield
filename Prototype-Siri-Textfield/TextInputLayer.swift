@@ -2,6 +2,8 @@ import SwiftUI
 
 struct TextInputLayer: View {
     @Binding var state: SiriState
+    @Binding var counter: Int
+    
     @State var text: String = "Hello"
     @FocusState private var isFocused: Bool
     
@@ -27,6 +29,7 @@ struct TextInputLayer: View {
             .onChange(of: isFocused) { _, newValue in
                 withAnimation(.easeInOut(duration: 0.9)) {
                     state = newValue ? .thinking : .none
+                    counter+=1
                 }
             }
     }

@@ -14,10 +14,6 @@ struct MeshAnimationView: View {
         state == .thinking ? 1.0 : 0
     }
     
-    private var rectangleSpeed: Float {
-        state == .thinking ? gradientSpeed : 0
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -27,17 +23,6 @@ struct MeshAnimationView: View {
                     .opacity(containerOpacity)
             }
             .ignoresSafeArea()
-            .modifier(RippleEffect(at: origin, trigger: counter))
-            .onAppear {
-                timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
-                    DispatchQueue.main.async {
-                        maskTimer += rectangleSpeed
-                    }
-                }
-            }
-            .onDisappear {
-                timer?.invalidate()
-            }
         }
     }
 }

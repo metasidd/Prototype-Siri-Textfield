@@ -18,7 +18,7 @@ struct ContentView: View {
 
     // Ripple animation vars
     @State var counter: Int = 0
-    @State var origin: CGPoint = .init(x: 0.5, y: 0.5)
+    @State var origin: CGPoint = .init(x: 200, y: 800) // TODO: This should be dynamic depending on where the user has tapped
 
     // Gradient and masking vars
     @State var gradientSpeed: Float = 0.03
@@ -38,11 +38,18 @@ struct ContentView: View {
         case .thinking: return 28
         }
     }
+    
+    private var rectangleSpeed: Float {
+        state == .thinking ? gradientSpeed : 0
+    }
 
     var body: some View {
         VStack {
             Spacer()
-            TextInputLayer(state: $state)
+            TextInputLayer(
+                state: $state,
+                counter: $counter
+            )
                 .padding(16)
         }
         .background {
@@ -64,6 +71,17 @@ struct ContentView: View {
                         }
                     }
             }
+            .modifier(RippleEffect(at: origin, trigger: counter))
+        }
+        .onAppear {
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+                DispatchQueue.main.async {
+                    maskTimer += rectangleSpeed
+                }
+            }
+        }
+        .onDisappear {
+            timer?.invalidate()
         }
     }
     
