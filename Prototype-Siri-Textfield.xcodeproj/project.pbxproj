@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2C79CD492CD4E02700A00E25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C79CD482CD4E02700A00E25 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2C79CD2A2CD4DF0800A00E25 /* Prototype-Siri-Textfield.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prototype-Siri-Textfield.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C79CD482CD4E02700A00E25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +37,7 @@
 		2C79CD212CD4DF0800A00E25 = {
 			isa = PBXGroup;
 			children = (
+				2C79CD482CD4E02700A00E25 /* Assets.xcassets */,
 				2C79CD2C2CD4DF0800A00E25 /* Prototype-Siri-Textfield */,
 				2C79CD2B2CD4DF0800A00E25 /* Products */,
 			);
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C79CD492CD4E02700A00E25 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
