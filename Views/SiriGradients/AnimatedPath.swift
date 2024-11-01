@@ -25,6 +25,10 @@ struct AnimatedRectangle: Shape {
         let height = size.height
         let radius = cornerRadius
 
+        // Calculate animation amplitude based on view size
+        let minDimension = min(width, height)
+        let amplitude = minDimension * 0.1 // 5% of the smallest dimension
+
         // Define the initial points
         let initialPoints = [
             CGPoint(x: padding + radius, y: padding),
@@ -56,8 +60,8 @@ struct AnimatedRectangle: Shape {
         // Animate the points
         let points = initialPoints.map { point in
             CGPoint(
-                x: point.x + 10 * sin(t + point.y * 0.1),
-                y: point.y + 10 * sin(t + point.x * 0.1)
+                x: point.x + amplitude * sin(t + point.y * 0.1),
+                y: point.y + amplitude * sin(t + point.x * 0.1)
             )
         }
 

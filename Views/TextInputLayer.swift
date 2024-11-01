@@ -15,6 +15,18 @@ struct TextInputLayer: View {
                     .foregroundColor(isFocused ? .black.opacity(0.7) : .white.opacity(0.5))
                     .padding(.horizontal, 12)
             }
+            .overlay(alignment: .trailing) {
+                if isFocused {
+                    Button {
+                        isFocused = false
+                        counter = 0
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(.black.opacity(0.7))
+                    }
+                    .padding(.horizontal, 8)
+                }
+            }
             .padding(.vertical, 16)
             .padding(.horizontal, 12)
             .multilineTextAlignment(.leading)
@@ -27,7 +39,6 @@ struct TextInputLayer: View {
                     .fill(isFocused ? Color.white.opacity(0.7) : Color.gray.opacity(0.1))
                     .stroke(Color.white, lineWidth: isFocused ? 1 : 0)
             )
-            .padding(16)
             .textInputAutocapitalization(.never)
             .autocorrectionDisabled()
             .focused($isFocused)

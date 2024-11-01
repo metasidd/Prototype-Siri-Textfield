@@ -53,42 +53,49 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
-            TextInputLayer(
-                state: $state,
-                counter: $counter
-            )
-            .background {
-                TextBoxAnimationView(state: $state)
-                    .mask {
-                        GeometryReader { geometry in
-                            AnimatedRectangle(size: geometry.size,
-                                              cornerRadius: 48,
-                                              t: CGFloat(maskTimer))
-                            .scaleEffect(textAnimationComputedScale)
-                            .frame(width: geometry.size.width,
-                                   height: geometry.size.height)
-                            .blur(radius: animatedMaskBlur)
+                TextInputLayer(
+                    state: $state,
+                    counter: $counter
+                )
+                .padding(12)
+                .background {
+                    TextBoxAnimationView(state: $state)
+                        
+                        .mask {
+                            GeometryReader { geometry in
+                                RoundedRectangle(cornerRadius: 32)
+                                    .padding(7)
+                                AnimatedRectangle(size: geometry.size,
+                                                  cornerRadius: 48,
+                                                  t: CGFloat(maskTimer))
+                                .scaleEffect(computedScale)
+                                .frame(width: geometry.size.width,
+                                       height: geometry.size.height)
+                            }
                         }
-                    }
-            }
-            .padding(16)
+                        .blur(radius: 12)
+                }
+                .padding(8)
+                .animation(.easeInOut, value: state)
         }
         .background(alignment: .top) {
             ZStack(alignment: .top) {
                 MeshAnimationView(state: $state)
                 
                 PhoneBackgroundView(state: $state)
-                    .mask {
-                        GeometryReader { geometry in
-                            AnimatedRectangle(size: geometry.size,
-                                              cornerRadius: 48,
-                                              t: CGFloat(maskTimer))
-                            .scaleEffect(computedScale)
-                            .frame(width: geometry.size.width,
-                                   height: geometry.size.height)
-                            .blur(radius: animatedMaskBlur)
-                        }
-                    }
+//                    .mask {
+//                        GeometryReader { geometry in
+//                            AnimatedRectangle(size: geometry.size,
+//                                              cornerRadius: 48,
+//                                              t: CGFloat(maskTimer))
+//                            .scaleEffect(computedScale)
+//                            .frame(width: geometry.size.width,
+//                                   height: geometry.size.height)
+//                            .blur(radius: animatedMaskBlur)
+//                        }
+//                    }
+                
+                brightOutlineView
             }
             .ignoresSafeArea()
             .modifier(RippleEffect(at: origin, trigger: counter))
@@ -108,8 +115,8 @@ struct ContentView: View {
     @ViewBuilder
     private var brightOutlineView: some View {
         if state == .thinking {
-            RoundedRectangle(cornerRadius: 52, style: .continuous)
-                .stroke(Color.white, style: .init(lineWidth: 4))
+            RoundedRectangle(cornerRadius: 64, style: .continuous)
+                .stroke(Color.white.opacity(0.5), style: .init(lineWidth: 2))
                 .blur(radius: 4)
         }
     }
