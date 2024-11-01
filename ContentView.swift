@@ -68,6 +68,7 @@ struct ContentView: View {
                             .blur(radius: animatedMaskBlur)
                         }
                     }
+                    .ignoresSafeArea()
             }
             .modifier(RippleEffect(at: origin, trigger: counter))
         }
