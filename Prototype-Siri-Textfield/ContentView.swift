@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+enum SiriState {
+    case none
+    case thinking
+}
+
 struct ContentView: View {
-    enum SiriState {
-        case none
-        case thinking
-    }
 
     @State var state: SiriState = .none
 
@@ -42,7 +43,6 @@ struct ContentView: View {
         VStack {
             Spacer()
             TextInputLayer(state: $state)
-                .frame(maxWidth: .infinity)
                 .padding(16)
         }
         .background {
@@ -51,9 +51,7 @@ struct ContentView: View {
                                origin: $origin,
                                counter: $counter)
                 
-                scrimView
-                
-                PhoneBackgroundView()
+                PhoneBackgroundView(state: $state)
                     .mask {
                         GeometryReader { geometry in
                             AnimatedRectangle(size: geometry.size,
@@ -70,7 +68,7 @@ struct ContentView: View {
     }
     
     @ViewBuilder
-    private var scrimView: some View {
+    private var brightOutlineView: some View {
         if state == .thinking {
             RoundedRectangle(cornerRadius: 52, style: .continuous)
                 .stroke(Color.white, style: .init(lineWidth: 4))

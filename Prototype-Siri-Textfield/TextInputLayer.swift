@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TextInputLayer: View {
-    @Binding var state: ContentView.SiriState
+    @Binding var state: SiriState
     @State var text: String = "Hello"
     @FocusState private var isFocused: Bool
     
