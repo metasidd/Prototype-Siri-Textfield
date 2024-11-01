@@ -50,13 +50,11 @@ struct ContentView: View {
                 state: $state,
                 counter: $counter
             )
-                .padding(16)
+            .padding(16)
         }
-        .background {
-            ZStack {
-                MeshAnimationView(state: $state,
-                               origin: $origin,
-                               counter: $counter)
+        .background(alignment: .top) {
+            ZStack(alignment: .top) {
+                MeshAnimationView(state: $state)
                 
                 PhoneBackgroundView(state: $state)
                     .mask {

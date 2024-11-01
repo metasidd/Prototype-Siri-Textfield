@@ -2,8 +2,6 @@ import SwiftUI
 
 struct MeshAnimationView: View {
     @Binding var state: SiriState
-    @Binding var origin: CGPoint
-    @Binding var counter: Int
     
     // Gradient and masking vars
     @State var gradientSpeed: Float = 0.03
@@ -17,7 +15,6 @@ struct MeshAnimationView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                
                 MeshGradientView(maskTimer: $maskTimer, gradientSpeed: $gradientSpeed)
                     .scaleEffect(1.3)
                     .opacity(containerOpacity)

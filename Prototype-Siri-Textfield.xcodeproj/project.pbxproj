@@ -6,14 +6,47 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2CB4FD172CD51120008C2D00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB4FD102CD51120008C2D00 /* Assets.xcassets */; };
+		2CB4FD1E2CD51120008C2D00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4FD122CD51120008C2D00 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2C79CD2A2CD4DF0800A00E25 /* Prototype-Siri-Textfield.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prototype-Siri-Textfield.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CB4FD102CD51120008C2D00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2CB4FD122CD51120008C2D00 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2CB4FD3C2CD51315008C2D00 /* Exceptions for "Views" folder in "Prototype-Siri-Textfield" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BackgroundView.swift,
+				MeshAnimationView.swift,
+				PhoneBackground/PhoneBackground.swift,
+				Prototype_Siri_TextfieldApp.swift,
+				Ripples/RippleEffect.metal,
+				Ripples/RippleEffectModifier.swift,
+				SiriGradients/AnimatedPath.swift,
+				SiriGradients/MeshGradientView.swift,
+				TextInputLayer.swift,
+			);
+			target = 2C79CD292CD4DF0800A00E25 /* Prototype-Siri-Textfield */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2C79CD2C2CD4DF0800A00E25 /* Prototype-Siri-Textfield */ = {
+		2CB4FD242CD51315008C2D00 /* Preview Content */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Prototype-Siri-Textfield";
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2CB4FD312CD51315008C2D00 /* Views */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2CB4FD3C2CD51315008C2D00 /* Exceptions for "Views" folder in "Prototype-Siri-Textfield" target */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +65,10 @@
 		2C79CD212CD4DF0800A00E25 = {
 			isa = PBXGroup;
 			children = (
-				2C79CD2C2CD4DF0800A00E25 /* Prototype-Siri-Textfield */,
+				2CB4FD122CD51120008C2D00 /* ContentView.swift */,
+				2CB4FD242CD51315008C2D00 /* Preview Content */,
+				2CB4FD312CD51315008C2D00 /* Views */,
+				2CB4FD102CD51120008C2D00 /* Assets.xcassets */,
 				2C79CD2B2CD4DF0800A00E25 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +97,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2C79CD2C2CD4DF0800A00E25 /* Prototype-Siri-Textfield */,
+				2CB4FD242CD51315008C2D00 /* Preview Content */,
 			);
 			name = "Prototype-Siri-Textfield";
 			packageProductDependencies = (
@@ -109,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CB4FD172CD51120008C2D00 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CB4FD1E2CD51120008C2D00 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
