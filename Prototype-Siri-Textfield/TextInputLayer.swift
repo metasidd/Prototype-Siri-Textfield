@@ -18,6 +18,7 @@ struct TextInputLayer: View {
             .background(
                 RoundedRectangle(cornerRadius: 32.0, style: .continuous)
                     .fill(Color.gray.opacity(0.1))
+                    .stroke(Color.white, lineWidth: isFocused ? 2 : 0)
             )
             .padding(16)
             .textInputAutocapitalization(.never)

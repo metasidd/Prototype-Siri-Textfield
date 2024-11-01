@@ -23,6 +23,20 @@ struct ContentView: View {
     @State var gradientSpeed: Float = 0.03
     @State var timer: Timer?
     @State private var maskTimer: Float = 0.0
+    
+    private var computedScale: CGFloat {
+        switch state {
+        case .none: return 1.2
+        case .thinking: return 1
+        }
+    }
+    
+    private var animatedMaskBlur: CGFloat {
+        switch state {
+        case .none: return 8
+        case .thinking: return 28
+        }
+    }
 
     var body: some View {
         VStack {
@@ -33,37 +47,23 @@ struct ContentView: View {
         }
         .background {
             ZStack {
-                PhoneBackground(state: $state)
-                    .mask {
-                        GeometryReader { geometry in
-                            AnimatedRectangle(size: geometry.size,
-                                            cornerRadius: 48,
-                                            t: CGFloat(maskTimer))
-                                .scaleEffect(computedScale)
-                                .frame(width: geometry.size.width,
-                                       height: geometry.size.height)
-                                .blur(radius: animatedMaskBlur)
-                        }
-                    }
-                
                 InteractionLayer(state: $state,
                                origin: $origin,
                                counter: $counter)
+                
+                PhoneBackground()
+                    .mask {
+                        GeometryReader { geometry in
+                            AnimatedRectangle(size: geometry.size,
+                                              cornerRadius: 48,
+                                              t: CGFloat(maskTimer))
+                            .scaleEffect(computedScale)
+                            .frame(width: geometry.size.width,
+                                   height: geometry.size.height)
+                            .blur(radius: animatedMaskBlur)
+                        }
+                    }
             }
-        }
-    }
-
-    private var computedScale: CGFloat {
-        switch state {
-        case .none: return 1.2
-        case .thinking: return 1
-        }
-    }
-
-    private var animatedMaskBlur: CGFloat {
-        switch state {
-        case .none: return 8
-        case .thinking: return 28
         }
     }
 }
