@@ -11,6 +11,8 @@ struct PhoneBackground: View {
     @Binding var state: ContentView.SiriState
     @Binding var origin: CGPoint
     @Binding var counter: Int
+    @State var text: String = "Hello"
+    @FocusState private var isFocused: Bool
 
     private var scrimOpacity: Double {
         switch state {
@@ -46,7 +48,13 @@ struct PhoneBackground: View {
             VStack {
                 welcomeText
 
-                siriButtonView
+                textfield
+                    .focused($isFocused)
+                    .onChange(of: isFocused) { _, newValue in
+                        withAnimation(.easeInOut(duration: 0.9)) {
+                            state = newValue ? .thinking : .none
+                        }
+                    }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .onPressingChanged { point in
@@ -57,6 +65,25 @@ struct PhoneBackground: View {
             }
             .padding(.bottom, 64)
         }
+    }
+
+    private var textfield: some View {
+        TextField("Test", text: $text)
+            .placeholder(when: text.isEmpty) {
+                Text("Placeholder recreated").foregroundColor(.gray)
+        }
+        .textFieldStyle(.plain)
+        .foregroundColor(.white)
+        .multilineTextAlignment(.center)
+        .font(.system(size: 24))
+        .padding(.vertical, 16)
+        .background(
+            RoundedRectangle(cornerRadius: 32.0, style: .continuous)
+                .fill(Color.gray.opacity(0.1))
+        )
+        .padding(16)
+        .textInputAutocapitalization(.never)
+        .autocorrectionDisabled()
     }
 
     @ViewBuilder
@@ -72,27 +99,17 @@ struct PhoneBackground: View {
                 .contentTransition(.opacity)
         }
     }
+}
 
-    private var siriButtonView: some View {
-        Button {
-            withAnimation(.easeInOut(duration: 0.9)) {
-                switch state {
-                case .none:
-                    state = .thinking
-                case .thinking:
-                    state = .none
-                }
-            }
-        } label: {
-            Image(systemName: iconName)
-                .contentTransition(.symbolEffect(.replace))
-                .frame(width: 96, height: 96)
-                .foregroundStyle(Color.white)
-                .font(.system(size: 32, weight: .bold, design: .monospaced))
-                .background(
-                    RoundedRectangle(cornerRadius: 32.0, style: .continuous)
-                        .fill(Color.gray.opacity(0.1))
-                )
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
         }
     }
 }
@@ -103,5 +120,4 @@ struct PhoneBackground: View {
         origin: .constant(CGPoint(x: 0.5, y: 0.5)),
         counter: .constant(0)
     )
-    .previewLayout(.sizeThatFits)
 }
