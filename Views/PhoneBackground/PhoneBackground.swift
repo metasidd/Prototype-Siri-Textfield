@@ -19,6 +19,7 @@ struct PhoneBackgroundView: View {
                 .ignoresSafeArea()
             
             scrimView
+                .ignoresSafeArea()
         }
     }
     
@@ -27,7 +28,7 @@ struct PhoneBackgroundView: View {
         case .none:
             0
         case .thinking:
-            0.9
+            0.70
         }
     }
     
@@ -35,13 +36,13 @@ struct PhoneBackgroundView: View {
         Rectangle()
             .fill(
                 LinearGradient(colors: [
-                    Color.pink,
-                    Color.blue,
-                    Color.black
-                ], startPoint: .bottom, endPoint: .top)
+                    Color.black,
+                    Color.blue.opacity(0.75),
+                    Color.pink.opacity(0.5)
+                ], startPoint: .center, endPoint: .top)
             )
             .opacity(scrimOpacity)
-            .scaleEffect(1.2) // avoids clipping
+            .scaleEffect(1) // avoids clipping
     }
 }
 
