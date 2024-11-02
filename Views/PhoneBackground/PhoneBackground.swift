@@ -27,13 +27,19 @@ struct PhoneBackgroundView: View {
         case .none:
             0
         case .thinking:
-            0.8
+            0.9
         }
     }
     
     private var scrimView: some View {
         Rectangle()
-            .fill(Color.black)
+            .fill(
+                LinearGradient(colors: [
+                    Color.pink,
+                    Color.blue,
+                    Color.black
+                ], startPoint: .bottom, endPoint: .top)
+            )
             .opacity(scrimOpacity)
             .scaleEffect(1.2) // avoids clipping
     }
