@@ -42,7 +42,7 @@ struct PhoneBackgroundView: View {
                 ], startPoint: .center, endPoint: .top)
             )
             .opacity(scrimOpacity)
-            .scaleEffect(1) // avoids clipping
+            .scaleEffect(1.2) // avoids clipping
     }
 }
 

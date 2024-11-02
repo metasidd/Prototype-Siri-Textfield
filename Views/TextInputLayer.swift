@@ -66,7 +66,6 @@ struct TextInputLayer: View {
                         Button {
                             isFocused = false
                             text = text.trimmingCharacters(in: .whitespacesAndNewlines)
-                            counter = 0
                         } label: {
                             Image(systemName: "xmark.circle.fill")
                                 .foregroundStyle(.black.opacity(0.7))
@@ -90,10 +89,14 @@ struct TextInputLayer: View {
         .textInputAutocapitalization(.never)
         .autocorrectionDisabled()
         .focused($isFocused)
-        .onChange(of: isFocused) { _, newValue in
-            withAnimation(.easeInOut(duration: 0.9)) {
-                state = newValue ? .thinking : .none
-                counter+=1
+        .onChange(of: isFocused) { oldValue, newValue in
+            withAnimation(.easeInOut(duration: 0.35)) {
+                if newValue == false {
+                    state = .none
+                } else {
+                    state = .thinking
+                    counter += 1
+                }
             }
         }
     }

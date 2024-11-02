@@ -77,7 +77,7 @@ struct ContentView: View {
                     .blur(radius: 10)
             }
             .padding(8)
-            .animation(.easeInOut, value: state)
+            .animation(.easeInOut(duration: 0.35), value: state)
         }
         .background(alignment: .top) {
             ZStack(alignment: .top) {
