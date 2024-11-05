@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TextInputLayer: View {
+struct SiriTextField: View {
     @Binding var state: SiriState
     @Binding var counter: Int
     

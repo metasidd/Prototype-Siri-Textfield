@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AnimatedRectangle: Shape {
+struct AnimatedMask: Shape {
     var size: CGSize
     var padding: Double = 8.0
     var cornerRadius: CGFloat
@@ -33,6 +33,7 @@ struct AnimatedRectangle: Shape {
         let initialPoints = [
             CGPoint(x: padding + radius, y: padding),
             CGPoint(x: width * 0.25 + padding, y: padding),
+            CGPoint(x: width * 0.5 + padding, y: padding),
             CGPoint(x: width * 0.75 + padding, y: padding),
             CGPoint(x: width - padding - radius, y: padding),
             CGPoint(x: width - padding, y: padding + radius),
@@ -41,6 +42,7 @@ struct AnimatedRectangle: Shape {
             CGPoint(x: width - padding, y: height - padding - radius),
             CGPoint(x: width - padding - radius, y: height - padding),
             CGPoint(x: width * 0.75 - padding, y: height - padding),
+            CGPoint(x: width * 0.5 - padding, y: height - padding),
             CGPoint(x: width * 0.25 - padding, y: height - padding),
             CGPoint(x: padding + radius, y: height - padding),
             CGPoint(x: padding, y: height - padding - radius),

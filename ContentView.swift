@@ -21,77 +21,60 @@ struct ContentView: View {
     @State var origin: CGPoint = .init(x: 200, y: 800) // TODO: This should be dynamic depending on where the user has tapped
     
     // Gradient and masking vars
-    @State var gradientSpeed: Float = 0.03
     @State var timer: Timer?
     @State private var maskTimer: Float = 0.0
     
-    private var computedScale: CGFloat {
-        switch state {
-        case .none: return 1.2
-        case .thinking: return 1
-        }
-    }
-    
-    private var textAnimationComputedScale: CGFloat {
-        switch state {
-        case .none: return 1.1
-        case .thinking: return 1
-        }
-    }
-    
-    private var animatedMaskBlur: CGFloat {
-        switch state {
-        case .none: return 8
-        case .thinking: return 28
-        }
-    }
-    
-    private var rectangleSpeed: Float {
-        state == .thinking ? gradientSpeed : 0
+    private var maskMovementSpeed: Float {
+        state == .thinking ? 0.04 : 0
     }
     
     var body: some View {
         VStack {
             Spacer()
             
-            TextInputLayer(
+            // Step 1: Draw the textbox
+            SiriTextField(
                 state: $state,
                 counter: $counter
             )
             .padding(12)
             
             .background {
-                TextBoxAnimationView(state: $state)
-                    .mask {
-                        GeometryReader { geometry in
-                            RoundedRectangle(cornerRadius: 32)
-                                .padding(7)
-                            AnimatedRectangle(size: geometry.size,
-                                              cornerRadius: 48,
-                                              t: CGFloat(maskTimer))
-                            .scaleEffect(computedScale)
-                            .frame(width: geometry.size.width,
-                                   height: geometry.size.height)
+                if state == .thinking {
+                    // Step 2: Draw the colorful background
+                    GlowingBackground(colors: [.red, .blue, .green, .yellow], opacity: 1, animationDuration: 3)
+                    
+                    // Step 3: Mask the colorful background with an animated path
+                        .mask {
+                            GeometryReader { geometry in
+                                RoundedRectangle(cornerRadius: 32)
+                                    .padding(8)
+                                AnimatedMask(size: geometry.size,
+                                             cornerRadius: 48,
+                                             t: CGFloat(maskTimer))
+                                .frame(width: geometry.size.width,
+                                       height: geometry.size.height)
+                            }
                         }
-                    }
-                    .blur(radius: 10)
+                    
+                    // Step 4: Blur the mask so it's hidden to the user
+                        .blur(radius: 14)
+                }
             }
             .padding(8)
             .animation(.easeInOut(duration: 0.35), value: state)
         }
         .background(alignment: .top) {
             ZStack(alignment: .top) {
-                MeshAnimationView(state: $state)
-                
-                PhoneBackgroundView(state: $state)
+                PhoneBackgroundView(state: $state) // Creates the phone background
             }
             .ignoresSafeArea()
-            .modifier(RippleEffect(at: origin, trigger: counter))
+            .modifier(RippleEffect(at: origin, trigger: counter)) // Adds the ripple shader effect when textbox is focused
         }
         .onAppear {
             timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
                 DispatchQueue.main.async {
-                    maskTimer += rectangleSpeed
+                    maskTimer += maskMovementSpeed // Animates the mask on a timer
                 }
             }
         }
