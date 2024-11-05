@@ -13,20 +13,19 @@ enum SiriState {
 }
 
 struct ContentView: View {
-    
     @State var state: SiriState = .none
-    
+
     // Ripple animation vars
     @State var counter: Int = 0
     @State var origin: CGPoint = .init(x: 200, y: 800) // TODO: This should be dynamic depending on where the user has tapped
-    
+
     private var scrimOpacity: Double {
         switch state {
         case .none: 0
         case .thinking: 0.70
         }
     }
-    
+
     var body: some View {
         VStack {
             Spacer()

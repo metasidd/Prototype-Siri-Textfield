@@ -1,39 +1,46 @@
+//
+//  SiriTextField.swift
+//  Prototype-Siri-Textfield
+//
+//  Created by Siddhant Mehta on 2024-11-05.
+//
+
 import SwiftUI
 
 struct SiriTextField: View {
     @Binding var state: SiriState
     @Binding var counter: Int
-    
+
     @State var text: String = ""
     @FocusState private var isFocused: Bool
-    
+
     private var outlineGradient: LinearGradient {
         LinearGradient(colors: [
             Color.white.opacity(isFocused ? 1 : 0.25),
-            Color.white.opacity(0.5)
+            Color.white.opacity(0.5),
         ], startPoint: .top, endPoint: .bottom)
     }
-    
+
     private var backgroundGradient: LinearGradient {
         LinearGradient(colors: [
             Color.white.opacity(isFocused ? 0.9 : 0.25),
-            Color.white.opacity(isFocused ? 0.7 : 0.1)
+            Color.white.opacity(isFocused ? 0.7 : 0.1),
         ], startPoint: .bottom, endPoint: .top)
     }
-    
+
     private var iconColorGradient: LinearGradient {
         if isFocused {
             return LinearGradient(colors: [
                 Color.blue,
-                Color.pink
+                Color.pink,
             ], startPoint: .bottom, endPoint: .top)
         } else {
             return LinearGradient(colors: [
-                Color.white.opacity(0.7)
+                Color.white.opacity(0.7),
             ], startPoint: .bottom, endPoint: .top)
         }
     }
-    
+
     var body: some View {
         HStack(spacing: 0) {
             Image(systemName: "apple.intelligence")
@@ -75,7 +82,7 @@ struct SiriTextField: View {
         .textInputAutocapitalization(.never)
         .autocorrectionDisabled()
         .focused($isFocused)
-        .onChange(of: isFocused) { oldValue, newValue in
+        .onChange(of: isFocused) { _, newValue in
             withAnimation(.easeInOut(duration: 0.35)) {
                 if newValue == false {
                     state = .none
@@ -92,11 +99,11 @@ extension View {
     func placeholder<Content: View>(
         when shouldShow: Bool,
         alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content) -> some View {
-            
-            ZStack(alignment: alignment) {
-                placeholder().opacity(shouldShow ? 1 : 0)
-                self
-            }
+        @ViewBuilder placeholder: () -> Content
+    ) -> some View {
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
         }
-} 
+    }
+}

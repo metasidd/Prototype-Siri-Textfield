@@ -1,5 +1,5 @@
 //
-//  AnimatedPath.swift
+//  AnimatedMask.swift
 //  SiriAnimationPrototype
 //
 //  Created by Siddhant Mehta on 2024-06-13.

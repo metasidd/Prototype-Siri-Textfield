@@ -1,15 +1,22 @@
+//
+//  ScrimView.swift
+//  Prototype-Siri-Textfield
+//
+//  Created by Siddhant Mehta on 2024-11-05.
+//
+
 import SwiftUI
 
 struct ScrimView: View {
     let opacity: Double
-    
+
     var body: some View {
         Rectangle()
             .fill(
                 LinearGradient(colors: [
                     Color.black,
                     Color.blue.opacity(0.75),
-                    Color.pink.opacity(0.5)
+                    Color.pink.opacity(0.5),
                 ], startPoint: .center, endPoint: .top)
             )
             .opacity(opacity)
@@ -20,4 +27,4 @@ struct ScrimView: View {
 
 #Preview {
     ScrimView(opacity: 0.7)
-} 
+}

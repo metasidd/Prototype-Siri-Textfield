@@ -1,3 +1,10 @@
+//
+//  GlowingBackground.swift
+//  Prototype-Siri-Textfield
+//
+//  Created by Siddhant Mehta on 2024-11-05.
+//
+
 import SwiftUI
 
 struct GlowingBackground: View {
@@ -5,7 +12,7 @@ struct GlowingBackground: View {
     let opacity: Double
     let animationDuration: Double
     @State private var rotation = 0.0
-    
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
