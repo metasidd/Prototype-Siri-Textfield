@@ -31,45 +31,19 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
-            
-            // Step 1: Draw the textbox
             SiriTextField(
                 state: $state,
                 counter: $counter
             )
             .padding(12)
-            
-            .background {
-                if state == .thinking {
-                    // Step 2: Draw the colorful background
-                    GlowingBackground(colors: [.red, .blue, .green, .yellow], opacity: 1, animationDuration: 3)
-                    
-                    // Step 3: Mask the colorful background with an animated path
-                        .mask {
-                            GeometryReader { geometry in
-                                RoundedRectangle(cornerRadius: 32)
-                                    .padding(8)
-                                AnimatedMask(size: geometry.size,
-                                             cornerRadius: 48,
-                                             t: CGFloat(maskTimer))
-                                .frame(width: geometry.size.width,
-                                       height: geometry.size.height)
-                            }
-                        }
-                    
-                    // Step 4: Blur the mask so it's hidden to the user
-                        .blur(radius: 14)
-                }
-            }
+            .background(textboxAnimatedOutline)
             .padding(8)
             .animation(.easeInOut(duration: 0.35), value: state)
         }
         .background(alignment: .top) {
-            ZStack(alignment: .top) {
-                PhoneBackgroundView(state: $state) // Creates the phone background
-            }
-            .ignoresSafeArea()
-            .modifier(RippleEffect(at: origin, trigger: counter)) // Adds the ripple shader effect when textbox is focused
+            PhoneBackgroundView(state: $state) // Creates the phone background
+                .ignoresSafeArea()
+                .modifier(RippleEffect(at: origin, trigger: counter)) // Adds the ripple shader effect when textbox is focused
         }
         .onAppear {
             timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
@@ -80,6 +54,29 @@ struct ContentView: View {
         }
         .onDisappear {
             timer?.invalidate()
+        }
+    }
+    
+    @ViewBuilder
+    private var textboxAnimatedOutline: some View {
+        if state == .thinking {
+            // Draw the colorful background
+            GlowingBackground(colors: [.red, .blue, .green, .yellow], opacity: 0.9, animationDuration: 3)
+            
+            // Mask the colorful background with an animated path
+                .mask {
+                    GeometryReader { geometry in
+                        RoundedRectangle(cornerRadius: 32)
+                            .padding(6)
+                        AnimatedMask(size: geometry.size,
+                                     cornerRadius: 48,
+                                     t: CGFloat(maskTimer))
+                        .frame(width: geometry.size.width,
+                               height: geometry.size.height)
+                    }
+                }
+            // Step 4: Blur the mask so it's hidden to the user
+                .blur(radius: 14)
         }
     }
 }

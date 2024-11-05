@@ -38,6 +38,7 @@ struct AnimatedMask: Shape {
             CGPoint(x: width - padding - radius, y: padding),
             CGPoint(x: width - padding, y: padding + radius),
             CGPoint(x: width - padding, y: height * 0.25 - padding),
+            CGPoint(x: width - padding, y: height * 0.5 - padding),
             CGPoint(x: width - padding, y: height * 0.75 - padding),
             CGPoint(x: width - padding, y: height - padding - radius),
             CGPoint(x: width - padding - radius, y: height - padding),
@@ -47,6 +48,7 @@ struct AnimatedMask: Shape {
             CGPoint(x: padding + radius, y: height - padding),
             CGPoint(x: padding, y: height - padding - radius),
             CGPoint(x: padding, y: height * 0.75 - padding),
+            CGPoint(x: padding, y: height * 0.5 - padding),
             CGPoint(x: padding, y: height * 0.25 - padding),
             CGPoint(x: padding, y: padding + radius),
         ]
@@ -82,7 +84,7 @@ struct AnimatedMask: Shape {
 //        path.addArc(center: arcCenters[0], radius: radius, startAngle: .degrees(180), endAngle: .degrees(270), clockwise: false)
 
         // Top edge
-        for point in points[0 ... 2] {
+        for point in points[0 ... 3] {
             path.addLine(to: point)
         }
 
@@ -98,7 +100,7 @@ struct AnimatedMask: Shape {
 //        path.addArc(center: arcCenters[2], radius: radius, startAngle: .degrees(0), endAngle: .degrees(90), clockwise: false)
 
         // Bottom edge
-        for point in points[8 ... 10] {
+        for point in points[8 ... 11] {
             path.addLine(to: point)
         }
 
@@ -106,7 +108,7 @@ struct AnimatedMask: Shape {
 //        path.addArc(center: arcCenters[3], radius: radius, startAngle: .degrees(90), endAngle: .degrees(180), clockwise: false)
 
         // Left edge
-        for point in points[11 ... 14] {
+        for point in points[12 ... 16] {
             path.addLine(to: point)
         }
 
