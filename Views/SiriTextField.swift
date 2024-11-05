@@ -8,31 +8,17 @@ struct SiriTextField: View {
     @FocusState private var isFocused: Bool
     
     private var outlineGradient: LinearGradient {
-        if isFocused {
-            return LinearGradient(colors: [
-                Color.white.opacity(1),
-                Color.white.opacity(0.5)
-            ], startPoint: .top, endPoint: .bottom)
-        } else {
-            return LinearGradient(colors: [
-                Color.white.opacity(0.25),
-                Color.white.opacity(0.5)
-            ], startPoint: .top, endPoint: .bottom)
-        }
+        LinearGradient(colors: [
+            Color.white.opacity(isFocused ? 1 : 0.25),
+            Color.white.opacity(0.5)
+        ], startPoint: .top, endPoint: .bottom)
     }
     
     private var backgroundGradient: LinearGradient {
-        if isFocused {
-            return LinearGradient(colors: [
-                Color.white.opacity(0.9),
-                Color.white.opacity(0.7)
-            ], startPoint: .bottom, endPoint: .top)
-        } else {
-            return LinearGradient(colors: [
-                Color.white.opacity(0.25),
-                Color.white.opacity(0.1)
-            ], startPoint: .bottom, endPoint: .top)
-        }
+        LinearGradient(colors: [
+            Color.white.opacity(isFocused ? 0.9 : 0.25),
+            Color.white.opacity(isFocused ? 0.7 : 0.1)
+        ], startPoint: .bottom, endPoint: .top)
     }
     
     private var iconColorGradient: LinearGradient {

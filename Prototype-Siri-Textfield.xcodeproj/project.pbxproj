@@ -8,47 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		2C4D7F7E2CD9E5FB00E3634A /* Prototype_Siri_TextfieldApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D7F732CD9E5FB00E3634A /* Prototype_Siri_TextfieldApp.swift */; };
+		2C4D7F842CD9EB1000E3634A /* RippleEffect.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D7F802CD9EB1000E3634A /* RippleEffect.metal */; };
 		2C4D7F8E2CD9EB8F00E3634A /* GlowingBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D7F8A2CD9EB8F00E3634A /* GlowingBackground.swift */; };
 		2C4D7F8F2CD9EB8F00E3634A /* RippleEffectModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D7F8B2CD9EB8F00E3634A /* RippleEffectModifier.swift */; };
 		2C4D7F902CD9EB8F00E3634A /* AnimatedMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D7F872CD9EB8F00E3634A /* AnimatedMask.swift */; };
 		2C4D7F912CD9EB8F00E3634A /* SiriTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D7F8C2CD9EB8F00E3634A /* SiriTextField.swift */; };
-		2C4D7F922CD9EB8F00E3634A /* PhoneBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D7F882CD9EB8F00E3634A /* PhoneBackground.swift */; };
+		2C4D7F922CD9EB8F00E3634A /* PhoneWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D7F882CD9EB8F00E3634A /* PhoneWallpaper.swift */; };
+		2C4D7F942CDA1C3300E3634A /* GlowingTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D7F932CDA1C3300E3634A /* GlowingTextFieldModifier.swift */; };
+		2C4D7F962CDA1CF500E3634A /* ScrimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D7F952CDA1CF500E3634A /* ScrimView.swift */; };
 		2CB4FD172CD51120008C2D00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB4FD102CD51120008C2D00 /* Assets.xcassets */; };
 		2CB4FD1E2CD51120008C2D00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4FD122CD51120008C2D00 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C4D7F732CD9E5FB00E3634A /* Prototype_Siri_TextfieldApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prototype_Siri_TextfieldApp.swift; sourceTree = "<group>"; };
+		2C4D7F802CD9EB1000E3634A /* RippleEffect.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = RippleEffect.metal; sourceTree = "<group>"; };
 		2C4D7F872CD9EB8F00E3634A /* AnimatedMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedMask.swift; sourceTree = "<group>"; };
-		2C4D7F882CD9EB8F00E3634A /* PhoneBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBackground.swift; sourceTree = "<group>"; };
+		2C4D7F882CD9EB8F00E3634A /* PhoneWallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneWallpaper.swift; sourceTree = "<group>"; };
 		2C4D7F8A2CD9EB8F00E3634A /* GlowingBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowingBackground.swift; sourceTree = "<group>"; };
 		2C4D7F8B2CD9EB8F00E3634A /* RippleEffectModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleEffectModifier.swift; sourceTree = "<group>"; };
 		2C4D7F8C2CD9EB8F00E3634A /* SiriTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriTextField.swift; sourceTree = "<group>"; };
+		2C4D7F932CDA1C3300E3634A /* GlowingTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowingTextFieldModifier.swift; sourceTree = "<group>"; };
+		2C4D7F952CDA1CF500E3634A /* ScrimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrimView.swift; sourceTree = "<group>"; };
 		2C79CD2A2CD4DF0800A00E25 /* Prototype-Siri-Textfield.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prototype-Siri-Textfield.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB4FD102CD51120008C2D00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CB4FD122CD51120008C2D00 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2C4D7F852CD9EB1000E3634A /* Exceptions for "Shaders" folder in "Prototype-Siri-Textfield" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				RippleEffect.metal,
-			);
-			target = 2C79CD292CD4DF0800A00E25 /* Prototype-Siri-Textfield */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		2C4D7F822CD9EB1000E3634A /* Shaders */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				2C4D7F852CD9EB1000E3634A /* Exceptions for "Shaders" folder in "Prototype-Siri-Textfield" target */,
-			);
-			path = Shaders;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2C79CD272CD4DF0800A00E25 /* Frameworks */ = {
@@ -64,10 +49,8 @@
 		2C4D7F892CD9EB8F00E3634A /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				2C4D7F882CD9EB8F00E3634A /* PhoneBackground.swift */,
-				2C4D7F8A2CD9EB8F00E3634A /* GlowingBackground.swift */,
-				2C4D7F872CD9EB8F00E3634A /* AnimatedMask.swift */,
-				2C4D7F8B2CD9EB8F00E3634A /* RippleEffectModifier.swift */,
+				2C4D7F882CD9EB8F00E3634A /* PhoneWallpaper.swift */,
+				2C4D7F952CDA1CF500E3634A /* ScrimView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -81,13 +64,25 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2C4D7F972CDA1D0900E3634A /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				2C4D7F932CDA1C3300E3634A /* GlowingTextFieldModifier.swift */,
+				2C4D7F8A2CD9EB8F00E3634A /* GlowingBackground.swift */,
+				2C4D7F872CD9EB8F00E3634A /* AnimatedMask.swift */,
+				2C4D7F8B2CD9EB8F00E3634A /* RippleEffectModifier.swift */,
+				2C4D7F802CD9EB1000E3634A /* RippleEffect.metal */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
 		2C79CD212CD4DF0800A00E25 = {
 			isa = PBXGroup;
 			children = (
 				2C4D7F732CD9E5FB00E3634A /* Prototype_Siri_TextfieldApp.swift */,
 				2CB4FD122CD51120008C2D00 /* ContentView.swift */,
 				2C4D7F8D2CD9EB8F00E3634A /* Views */,
-				2C4D7F822CD9EB1000E3634A /* Shaders */,
+				2C4D7F972CDA1D0900E3634A /* Effects */,
 				2CB4FD102CD51120008C2D00 /* Assets.xcassets */,
 				2C79CD2B2CD4DF0800A00E25 /* Products */,
 			);
@@ -174,12 +169,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CB4FD1E2CD51120008C2D00 /* ContentView.swift in Sources */,
+				2C4D7F962CDA1CF500E3634A /* ScrimView.swift in Sources */,
+				2C4D7F842CD9EB1000E3634A /* RippleEffect.metal in Sources */,
 				2C4D7F7E2CD9E5FB00E3634A /* Prototype_Siri_TextfieldApp.swift in Sources */,
+				2C4D7F942CDA1C3300E3634A /* GlowingTextFieldModifier.swift in Sources */,
 				2C4D7F8E2CD9EB8F00E3634A /* GlowingBackground.swift in Sources */,
 				2C4D7F8F2CD9EB8F00E3634A /* RippleEffectModifier.swift in Sources */,
 				2C4D7F902CD9EB8F00E3634A /* AnimatedMask.swift in Sources */,
 				2C4D7F912CD9EB8F00E3634A /* SiriTextField.swift in Sources */,
-				2C4D7F922CD9EB8F00E3634A /* PhoneBackground.swift in Sources */,
+				2C4D7F922CD9EB8F00E3634A /* PhoneWallpaper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
