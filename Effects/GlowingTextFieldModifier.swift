@@ -6,22 +6,12 @@ struct GlowingTextFieldModifier: ViewModifier {
     @State private var timer: Timer?
     
     private var maskMovementSpeed: Float {
-        state == .thinking ? 0.04 : 0
+        state == .thinking ? 0.02 : 0
     }
     
     func body(content: Content) -> some View {
         content
             .background(animatedGlowingOutline)
-            .onAppear {
-                timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
-                    DispatchQueue.main.async {
-                        maskTimer += maskMovementSpeed
-                    }
-                }
-            }
-            .onDisappear {
-                timer?.invalidate()
-            }
     }
     
     @ViewBuilder
@@ -41,13 +31,19 @@ struct GlowingTextFieldModifier: ViewModifier {
                         cornerRadius: 48,
                         t: CGFloat(maskTimer)
                     )
-                    .frame(
-                        width: geometry.size.width,
-                        height: geometry.size.height
-                    )
                 }
             }
-            .blur(radius: 14)
+            .blur(radius: 12) // Switch off this layer to see how the mask is moving.
+            .onAppear {
+                timer = Timer.scheduledTimer(withTimeInterval: 0.008, repeats: true) { _ in
+                    withAnimation {
+                        maskTimer += maskMovementSpeed
+                    }
+                }
+            }
+            .onDisappear {
+                timer?.invalidate()
+            }
         }
     }
 }

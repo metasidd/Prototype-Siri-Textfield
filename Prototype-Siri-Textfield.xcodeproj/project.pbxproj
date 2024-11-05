@@ -49,6 +49,7 @@
 		2C4D7F892CD9EB8F00E3634A /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				2C4D7F8C2CD9EB8F00E3634A /* SiriTextField.swift */,
 				2C4D7F882CD9EB8F00E3634A /* PhoneWallpaper.swift */,
 				2C4D7F952CDA1CF500E3634A /* ScrimView.swift */,
 			);
@@ -58,7 +59,7 @@
 		2C4D7F8D2CD9EB8F00E3634A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2C4D7F8C2CD9EB8F00E3634A /* SiriTextField.swift */,
+				2CB4FD122CD51120008C2D00 /* ContentView.swift */,
 				2C4D7F892CD9EB8F00E3634A /* Subviews */,
 			);
 			path = Views;
@@ -80,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				2C4D7F732CD9E5FB00E3634A /* Prototype_Siri_TextfieldApp.swift */,
-				2CB4FD122CD51120008C2D00 /* ContentView.swift */,
 				2C4D7F8D2CD9EB8F00E3634A /* Views */,
 				2C4D7F972CDA1D0900E3634A /* Effects */,
 				2CB4FD102CD51120008C2D00 /* Assets.xcassets */,

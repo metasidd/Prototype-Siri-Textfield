@@ -34,7 +34,7 @@ struct ContentView: View {
                 state: $state,
                 counter: $counter
             )
-            .padding(12)
+            .padding(8)
             .glowingTextField(state: state)
             .padding(8)
             .animation(.easeInOut(duration: 0.35), value: state)
